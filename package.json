@@ -1,0 +1,22 @@
+{
+  "name": "dreamworld",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "node --require ./patch-node.js node_modules/vite/bin/vite.js",
+    "build": "node --require ./patch-node.js node_modules/vite/bin/vite.js build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "framer-motion": "^7.10.3",
+    "gsap": "^3.12.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.5.3",
+    "react-router-dom": "^6.16.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^2.2.0",
+    "vite": "^2.9.18"
+  }
+}

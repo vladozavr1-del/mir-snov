@@ -1,0 +1,100 @@
+.shadowContainer {
+  position: fixed;
+  pointer-events: none;
+  z-index: var(--z-shadow-guide);
+  transform: translate(-50%, -60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.shadowContainer.visible {
+  opacity: 1;
+}
+
+.silhouette {
+  width: 40px;
+  height: 80px;
+  color: rgba(90, 40, 160, 0.55);
+  filter: blur(1.5px);
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.4s ease,
+    color 0.3s ease;
+  animation: shadow-breathe 4s ease-in-out infinite;
+}
+
+.shadowContainer.interactive .silhouette {
+  transform: scale(1.35);
+  color: rgba(120, 60, 220, 0.7);
+  filter: blur(0.5px);
+  animation: none;
+}
+
+.shadowContainer.scrolling .silhouette {
+  transform: scaleY(0.85) scaleX(1.1);
+  color: rgba(80, 30, 140, 0.45);
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 100px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(124, 58, 237, 0.25) 0%,
+    rgba(90, 20, 180, 0.1) 40%,
+    transparent 70%
+  );
+  filter: blur(15px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.shadowContainer.interactive .glow {
+  opacity: 1.5;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.shadow {
+  position: fixed;
+  pointer-events: none;
+  z-index: calc(var(--z-shadow-guide) - 1);
+  transform: translate(-50%, -40%);
+  transition: opacity 0.8s ease;
+}
+
+.shadowTrail {
+  width: 30px;
+  height: 60px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(70, 20, 120, 0.3) 0%,
+    transparent 70%
+  );
+  filter: blur(20px);
+  border-radius: 50%;
+}
+
+.pointer {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 20px;
+  color: rgba(167, 139, 250, 0.7);
+  animation: pointer-pulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes shadow-breathe {
+  0%, 100% { filter: blur(1.5px) brightness(0.7); transform: scale(1) translateY(0); }
+  50% { filter: blur(2px) brightness(0.85); transform: scale(1.03) translateY(-2px); }
+}
+
+@keyframes pointer-pulse {
+  from { opacity: 0.5; transform: translateX(-50%) translateY(0); }
+  to { opacity: 1; transform: translateX(-50%) translateY(4px); }
+}

@@ -1,0 +1,66 @@
+.viewport {
+  position: absolute;
+  top: -22%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  perspective: 900px;
+  perspective-origin: 50% 55%;
+}
+
+.stage {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.shard {
+  position: absolute;
+  transform-style: preserve-3d;
+  will-change: transform;
+  mix-blend-mode: screen;
+}
+
+/* Ambient glow orbs */
+.glow1 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  top: 10%;
+  left: 50%;
+  background: radial-gradient(circle, rgba(124,58,237,0.18) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: glow-breathe 9s ease-in-out infinite;
+}
+
+.glow2 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  top: 50%;
+  left: 72%;
+  background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+  filter: blur(35px);
+  animation: glow-breathe 13s ease-in-out infinite 3s reverse;
+}
+
+.glow3 {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  top: 70%;
+  left: 40%;
+  background: radial-gradient(circle, rgba(167,139,250,0.12) 0%, transparent 70%);
+  filter: blur(30px);
+  animation: glow-breathe 7s ease-in-out infinite 6s;
+}
+
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}

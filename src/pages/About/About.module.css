@@ -1,0 +1,184 @@
+.main {
+  min-height: 100vh;
+  padding-top: 8rem;
+}
+
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem 5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-lavender);
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: var(--color-white);
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  color: rgba(226, 217, 243, 0.55);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 650px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem 6rem;
+}
+
+.section {
+  padding: 5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 300;
+  color: var(--color-silver);
+  margin-bottom: 3rem;
+}
+
+.text {
+  color: rgba(226, 217, 243, 0.6);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 700px;
+}
+
+/* Mission */
+.missionGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.missionCard {
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: rgba(13, 11, 30, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.missionIcon {
+  font-size: 1.8rem;
+  color: var(--color-lavender);
+  margin-bottom: 1rem;
+}
+
+.missionCard h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--color-silver);
+  margin-bottom: 0.7rem;
+  font-weight: 400;
+}
+
+.missionCard p {
+  font-size: 0.9rem;
+  color: rgba(196, 181, 253, 0.5);
+  line-height: 1.7;
+}
+
+/* Team */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.teamCard {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: rgba(13, 11, 30, 0.4);
+  backdrop-filter: blur(10px);
+  transition: border-color 0.3s ease;
+}
+
+.teamCard:hover {
+  border-color: var(--color-border-glow);
+}
+
+.teamAvatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--color-lavender);
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+}
+
+.teamName {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-silver);
+  margin-bottom: 0.3rem;
+  font-weight: 400;
+}
+
+.teamRole {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-lavender);
+  margin-bottom: 1rem;
+}
+
+.teamDesc {
+  font-size: 0.88rem;
+  color: rgba(196, 181, 253, 0.5);
+  line-height: 1.7;
+}
+
+/* Quote */
+.quoteSection {
+  padding: 5rem 0;
+}
+
+.quote {
+  max-width: 680px;
+}
+
+.quote p {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  font-style: italic;
+  color: rgba(226, 217, 243, 0.55);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .missionGrid, .teamGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero, .container { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .missionGrid, .teamGrid { grid-template-columns: 1fr; }
+}

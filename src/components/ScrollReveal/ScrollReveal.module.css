@@ -1,0 +1,20 @@
+.reveal {
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.8s ease;
+}
+
+.fromUp { opacity: 0; transform: translateY(40px); filter: blur(3px); }
+.fromLeft { opacity: 0; transform: translateX(-40px); filter: blur(3px); }
+.fromRight { opacity: 0; transform: translateX(40px); filter: blur(3px); }
+.fromFade { opacity: 0; filter: blur(4px); }
+
+.visible.fromUp,
+.visible.fromLeft,
+.visible.fromRight,
+.visible.fromFade {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}

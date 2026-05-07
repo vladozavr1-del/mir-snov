@@ -1,0 +1,98 @@
+.wrapper {
+  position: fixed;
+  pointer-events: none;
+  z-index: var(--z-shadow-guide);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  will-change: transform;
+}
+
+.wrapper.visible { opacity: 1; }
+
+.feather {
+  display: block;
+  filter:
+    drop-shadow(0 0 5px rgba(167, 139, 250, 0.55))
+    drop-shadow(0 0 18px rgba(124, 58, 237, 0.25));
+  transition: filter 0.35s ease;
+}
+
+.wrapper.hover .feather {
+  filter:
+    drop-shadow(0 0 8px rgba(196, 181, 253, 0.85))
+    drop-shadow(0 0 28px rgba(167, 139, 250, 0.55))
+    drop-shadow(0 0 55px rgba(124, 58, 237, 0.30));
+}
+
+/* Ambient glow halo around feather */
+.glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 68px;
+  background: radial-gradient(
+    ellipse 55% 70% at 50% 35%,
+    rgba(167, 139, 250, 0.18) 0%,
+    rgba(124, 58, 237, 0.07) 55%,
+    transparent 80%
+  );
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+/* Ink dot at the very tip — positioned absolutely within wrapper */
+.inkDot {
+  position: absolute;
+  /* tip is at TIP_OFFSET_Y = 64px from top (66 * 0.97), centered horizontally */
+  bottom: calc(66px - 64px - 2px);   /* ≈ 0px → just at tip */
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #c4b5fd 50%, transparent 100%);
+  box-shadow:
+    0 0 3px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(196, 181, 253, 0.8),
+    0 0 22px rgba(124, 58, 237, 0.5);
+  animation: ink-pulse 2.2s ease-in-out infinite;
+}
+
+/* Trailing velocity orb */
+.trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: calc(var(--z-shadow-guide) - 1);
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(124, 58, 237, 0.12) 0%,
+    rgba(90, 20, 160, 0.05) 50%,
+    transparent 70%
+  );
+  filter: blur(22px);
+  transition: opacity 0.5s ease;
+  will-change: opacity, left, top;
+}
+
+@keyframes ink-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 3px rgba(255,255,255,0.9),
+      0 0 10px rgba(196,181,253,0.8),
+      0 0 22px rgba(124,58,237,0.5);
+    transform: translate(-50%, 50%) scale(1);
+  }
+  50% {
+    box-shadow:
+      0 0 5px rgba(255,255,255,1),
+      0 0 18px rgba(196,181,253,1),
+      0 0 38px rgba(124,58,237,0.7);
+    transform: translate(-50%, 50%) scale(1.4);
+  }
+}
