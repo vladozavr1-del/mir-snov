@@ -9,7 +9,7 @@ Module._load = function (request, parent, isMain) {
 }
 
 // Shim 2: add createFilter to vite for @vitejs/plugin-react@2.x + vite@2.x
-const viteModule = require('c:/clude/node_modules/vite')
+const viteModule = require('vite')
 
 function createFilter(include, exclude) {
   const toArray = (val) => {
